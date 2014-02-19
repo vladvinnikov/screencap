@@ -1,5 +1,4 @@
 require "screencap/version"
-require 'phantomjs.rb'
 
 require 'pathname'
 
