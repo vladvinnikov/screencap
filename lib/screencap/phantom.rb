@@ -9,6 +9,7 @@ module Screencap
       }.merge(args).collect {|k,v| "#{k}=#{v}"}
       #puts RASTERIZE.to_s, params
       result = Phantomjs.run(RASTERIZE.to_s, *params)
+      p result
       raise Screencap::Error, "Could not load URL #{url}" if result.match /Unable to load/
     end
 

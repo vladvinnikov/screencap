@@ -1,12 +1,18 @@
 # Screencap
 
-A screenshot gem you can use from your ruby application. Uses Phantom.js under the hood.
+This forks contains an adaptation for our needs
+
+100% height, fixed width, configurable delay after page is loaded
+
+Some options were removed.
+
+Please see original gem as it is much more generic than our usecase.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'screencap'
+    gem 'glebtv-screencap'
 
 And then execute:
 
@@ -14,36 +20,33 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install screencap
+    $ gem install glebtv-screencap
 
 ## Usage
 
 ```ruby
-  require 'screencap'
+require 'screencap'
 
-  f = Screencap::Fetcher.new('http://google.com')
-  screenshot = f.fetch
+f = Screencap::Fetcher.new('http://google.com')
+screenshot = f.fetch
 ```
 
 it also currently supports a couple of options
 
 ```ruby
-  f = Screencap::Fetcher.new('http://google.com')
-  screenshot = f.fetch(
-  	:output => '~/my_directory.png', #dont forget the extension!
-  	# optional:
-  	:div => '.header',
-  	:width => 1024,
-  	:top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
-  )
+f = Screencap::Fetcher.new('http://google.com')
+screenshot = f.fetch(
+  :output => '~/my_directory.png', #dont forget the extension!
+  # optional:
+  :height => 1024,
+  :width => 1024,
+  :delay => 15000,
+)
 
 ```
 
 ## To-do
 
-more tests
-better configuration
-expose more options
 ## Contributing
 
 1. Fork it
@@ -51,3 +54,4 @@ expose more options
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
