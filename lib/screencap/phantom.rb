@@ -11,6 +11,7 @@ module Screencap
       cookies = Rails.root.join("tmp", "cookies.txt")
       params.push "--cookies-file=#{cookies.to_s}"
       params.push "--ssl-protocol=any"
+      params.push "--ignore-ssl-errors=true"
       result = Phantomjs.run(RASTERIZE.to_s, *params)
       # puts result
       raise Screencap::Error, "Could not load URL #{url}" if result.match /Unable to load/
